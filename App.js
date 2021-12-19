@@ -34,8 +34,7 @@ const App = () => {
         <View>
           <Text>Hello</Text>
         </View>
-        </SafeAreaView>
-    
+    </SafeAreaView>
   );
 };
 
