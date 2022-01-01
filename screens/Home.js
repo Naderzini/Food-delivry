@@ -5,6 +5,7 @@ import icons from "../constants/icons"
 import images from "../constants/images"
 import Header from '../components/Header'
 import MainCategories from "../components/MainCategories"
+import RestaurantList from "../components/RestaurantList"
 
 const Home = () => {
 
@@ -333,15 +334,18 @@ const [restaurants, setRestaurants] = React.useState(restaurantData)
 const [currentLocation, setCurrentLocation] = React.useState(initialCurrentLocation)
 
 function onSelectCategory(category){
-    let restaurantList = restaurantData.filter(a => a.categories.includes(category.id) )
+    let restaurantList = restaurantData.filter(a => a.categories.includes(category.id))
+    console.log({restaurantList})
     setRestaurants(restaurantList)
     setSelectedCategory(category)
 }
+
     
     return (
         <SafeAreaView style={styles.container}>
             <Header currentLocation={currentLocation}/>
-            <MainCategories categories={categories} selectedCategory={selectedCategory} onSelectCategory={onSelectCategory} />
+            <MainCategories categories={categories} selectedCategory={selectedCategory} onSelectCategory={onSelectCategory}/>
+            <RestaurantList restaurantes={restaurants}/>
         </SafeAreaView>
     )
 }

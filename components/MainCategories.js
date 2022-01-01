@@ -6,20 +6,20 @@ import  images from "../constants/images"
 
 
 const MainCategories = ({categories,onSelectCategory,selectedCategory}) => {
-    console.log(selectedCategory)
+   
     const renderItem = ({item}) =>{
         return(
             <TouchableOpacity
                 style={{
                     padding: SIZES.padding,
                     paddingBottom: SIZES.padding * 2,
-                    backgroundColor: (selectedCategory?.id == item.id )? COLORS.primary : COLORS.white,
-                    borderRadius: SIZES.radius,
+                    backgroundColor: (selectedCategory?.id == item.id) ? COLORS.primary : COLORS.white,
+                    borderRadius:30,
                     alignItems:"center",
                     justifyContent:"center",
                     marginRight:SIZES.padding,
                 }}
-                onPress={onSelectCategory}
+                onPress={() => onSelectCategory(item)}
             >
                 
                 <View
@@ -29,7 +29,7 @@ const MainCategories = ({categories,onSelectCategory,selectedCategory}) => {
                         borderRadius:50,
                         alignItems: "center",
                         justifyContent: "center",
-                        backgroundColor:COLORS.white
+                        backgroundColor:(selectedCategory?.id == item.id) ? COLORS.white : COLORS.lightGray,
                     }}
                 >
                     <Image
@@ -44,7 +44,7 @@ const MainCategories = ({categories,onSelectCategory,selectedCategory}) => {
                     <Text
                      style={{
                          marginTop:SIZES.padding,
-                         color:COLORS.white,
+                         color:(selectedCategory?.id == item.id) ? COLORS.white : COLORS.black,
                          fontWeight:"bold",
                          ...FONTS.body5
                      }}
